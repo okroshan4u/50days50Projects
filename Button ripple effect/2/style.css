@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+button{
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    padding:10px 20px;
+    text-transform: uppercase;
+    overflow: hidden; /* Needed to keep the ripple within the button*/
+    border: none;
+    font-size: 16px;
+}
+.ripple > span{
+    background-color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    width: 0px;
+    height: 0px;
+    animation: ripple 0.6s linear;
+    opacity: 0.3;
+}
+@keyframes ripple {
+    from {
+        height: 0px;
+        width: 0px;
+        opacity: 0.9;
+    }
+    to {
+        height: 540px;
+        width: 540px;
+        opacity: 0;
+    }
+}
