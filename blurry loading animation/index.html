@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blurry Loading Animation</title>
+    <style>
+        /* Full-screen loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Hide the loader after animation */
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Blurry effect */
+        .content {
+            filter: blur(10px);
+            transition: filter 1s ease-in-out;
+        }
+
+        .content.visible {
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader">Loading...</div>
+    
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is some content that will appear after the loading animation.</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            let loader = document.querySelector(".loader");
+            let content = document.querySelector(".content");
+
+            // Hide loader after 1.5 seconds
+            setTimeout(() => {
+                loader.classList.add("hidden");
+                content.classList.add("visible");
+            }, 1500);
+        };
+    </script>
+
+</body>
+</html>
