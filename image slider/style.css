@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+    width: 100vw;
+    position: relative;
+    transition: width 0.5s;
+    transition: all 0.5s;
+}
+
+.img_box-1 {
+    height: 50vh;
+    width: 100px;
+    background: url(./images/image-1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: width 0.5s;
+
+    opacity: 0.6;
+}
+
+.img_box-2 {
+    height: 50vh;
+    width: 100px;
+    background: url(./images/image-2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: width 0.5s;
+    opacity: 0.6;
+}
+
+.img_box-3 {
+    height: 50vh;
+    width: 100px;
+    background: url(./images/image-3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: width 0.5s;
+    opacity: 0.6;
+}
+
+.img_box-4 {
+    height: 50vh;
+    width: 100px;
+    background: url(./images/image-4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: width 0.5s;
+    opacity: 0.6;
+}
+
+.container h3 {
+    background-color: transparent;
+    top: 330px;
+    left: 5px;
+    color: rgb(255, 255, 254);
+    display: block;
+    opacity: 1;
+    position: relative;
+}
+
+.img_box-1:hover {
+    width: 400px;
+    opacity: 1;
+}
+
+.img_box-2:hover {
+    width: 400px;
+    opacity: 1;
+}
+
+.img_box-3:hover {
+    width: 400px;
+    opacity: 1;
+}
+
+.img_box-4:hover {
+    width: 400px;
+    opacity: 1;
+}
