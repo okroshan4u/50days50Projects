@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #8e44ad;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    align-items: center;
+    text-align: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+.counter-container i{
+    margin: 10px;
+}
+.counter{
+    font-size: 70px;
+}
