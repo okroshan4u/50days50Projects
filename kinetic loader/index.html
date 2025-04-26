@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic loader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="btn">Toggle</button>
+    <div class="kinetic"></div>
+</body>
+<script>
+    const toggle = document.querySelector('.btn')
+    const kinetic = document.querySelector('.kinetic')
+    toggle.addEventListener('click',()=>{
+        document.body.classList.toggle('light')
+    })
+</script>
+</html>
