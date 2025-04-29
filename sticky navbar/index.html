@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="logo"><a href="https://www.linkedin.com/in/roshan-kumar-ram-512457246/"
+                target="_blank">okroshan4u</a></div>
+        <div class="nav-component">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Serveices</li>
+            </ul>
+        </div>
+    </div>
+    <div class="hero_img">
+        <img src="img.jpg" alt="">
+    </div>
+    <div class="content">
+        <div class="content-1">
+            <h2>Understanding GSoC and Chromium’s Codebase</h2>
+            <p>
+                Google Summer of Code (GSoC) is a global, open-source program that empowers students to contribute to
+                real-world software development.<br><br>
+
+                As part of my GSoC 2025 journey, I focused on contributing to the Chromium project — the open-source
+                backbone of the Chrome browser.<br><br>
+
+                One of the most challenging and rewarding aspects of contributing to Chromium is understanding its
+                massive and modular codebase. With thousands of files and components, navigating the code requires not
+                just patience, but also a strategic approach:<br><br>
+
+                <b>Start small:</b> Clone the repo and build Chromium using official documentation.<br>
+                <b>Use tools:</b> Leverage <code>gn</code>, <code>ninja</code>, and <a
+                    href="https://source.chromium.org">chromium_code_search</a> to find relevant modules.<br>
+                <b>Trace from UI to backend:</b> Identify entry points such as browser actions or API calls and trace
+                the flow to the underlying C++ or JavaScript implementations.<br><br>
+
+                My proposal for GSoC 2025 — <b>Enhancing Chrome Extension APIs: Improving Declarative Net Request and
+                    Side Panel API Features</b> — required deep dives into the <code>extensions/</code>,
+                <code>chrome/browser/extensions/</code>, and <code>chrome/common/extensions/api/</code>
+                directories.<br><br>
+
+                These contain the core logic that defines how extensions interact with the browser.<br><br>
+
+                By analyzing how existing APIs are registered, validated, and exposed to extensions, I could frame ways
+                to improve both functionality and developer experience.<br><br>
+
+                The process taught me not only how to understand a large-scale codebase, but also how to design changes
+                that align with Chromium’s architecture and standards.<br><br>
+
+            </p>
+        </div>
+        <div class="content-2">
+            <h2>Content Two</h2>
+            <p>
+            <h2>🛠️ How to Approach the Chromium Codebase (Step-by-Step)</h2>
+            <b>— A GSoC Contributor’s Guide to Working on Extension APIs</b><br><br>
+
+            Contributing to Chromium is a rewarding challenge. With a complex, large-scale C++/JavaScript codebase, it's
+            easy to feel overwhelmed at first. But with a structured approach, understanding and contributing becomes
+            very manageable. Here's the step-by-step strategy I used, aligned directly with my GSoC proposal:<br><br>
+
+            <h3>🧩 Step 1: Understand the Scope of the Proposal</h3>
+            Before touching the code:<br>
+            - Break down the proposal into features or improvements. For me, it was:<br>
+            &nbsp;&nbsp;• <b>Improving the Declarative Net Request (DNR) API</b> (used for blocking/filtering network
+            requests in extensions)<br>
+            &nbsp;&nbsp;• <b>Enhancing the Side Panel API</b> (used to create contextual sidebars in extensions)<br>
+            Understanding what each API does conceptually and where it fits in Chromium was the foundation.<br><br>
+
+            <h3>🧭 Step 2: Set Up Chromium Locally</h3>
+            Chromium has a strict build and dependency system.<br>
+            - Follow the official Chromium build instructions for your OS.<br>
+            - Use <code>depot_tools</code> for syncing and building (<code>gclient</code>, <code>gn</code>,
+            <code>ninja</code>).<br>
+            - Run:<br>
+            <code>
+                fetch --nohooks chromium<br>
+                gclient runhooks<br>
+                gn gen out/Default<br>
+                autoninja -C out/Default chrome
+                </code><br>
+            Once Chromium builds, launch it with:<br>
+            <code>out/Default/chrome --enable-features=SidePanel</code><br><br>
+
+            <h3>🔍 Step 3: Locate the Relevant Code Directories</h3>
+            For Extension APIs, especially DNR and Side Panel:<br>
+            - API definitions (IDL files): <code>chrome/common/extensions/api/</code><br>
+            - Backend logic and handlers (C++): <code>chrome/browser/extensions/</code><br>
+            - Frontend bindings (JavaScript in DevTools): <code>extensions/renderer/</code><br>
+            - Tests: <code>chrome/browser/extensions/api/..._unittest.cc</code><br><br>
+            Specifically:<br>
+            - DNR: <code>declarative_net_request/</code><br>
+            - Side Panel: <code>side_panel/</code><br><br>
+            Use <a href="https://source.chromium.org/">source.chromium.org</a> to search relevant APIs and
+            classes.<br><br>
+
+            <h3>🧠 Step 4: Read and Trace the API Lifecycle</h3>
+            Each Chrome extension API follows this flow:<br>
+            1. <b>Definition</b>: JSON or IDL schema in <code>api/</code><br>
+            2. <b>Registration</b>: via <code>ExtensionFunctionRegistry</code><br>
+            3. <b>Permission/Feature checks</b>: in <code>manifest_features.json</code><br>
+            4. <b>Handler logic</b>: in <code>chrome/browser/extensions/api/</code><br>
+            5. <b>Tests</b>: in <code>_unittest.cc</code> files<br><br>
+            Start with a method like <code>chrome.declarativeNetRequest.updateDynamicRules()</code> and trace it through
+            the flow.<br><br>
+
+            <h3>📚 Step 5: Explore Existing Implementation</h3>
+            Look into:<br>
+            - How dynamic rules are stored: <code>RulesetManager</code>, <code>RulesMonitorService</code><br>
+            - How rules are validated and parsed<br>
+            - How the side panel integrates with extensions and UI<br><br>
+
+            <h3>🧪 Step 6: Write and Run Tests</h3>
+            Chromium uses:<br>
+            - Unit tests: <code>gtest</code><br>
+            - Browser tests: integration-level<br>
+            - JS extension tests: in <code>chrome/test/data/extensions/</code><br><br>
+            Example test files:<br>
+            - <code>declarative_net_request_apitest.cc</code><br>
+            - <code>side_panel_apitest.cc</code><br><br>
+            Run tests using:<br>
+            <code>
+                autoninja -C out/Default extensions_browsertests<br>
+                out/Default/extensions_browsertests --gtest_filter=*DeclarativeNetRequest*
+                </code><br><br>
+
+            <h3>🚀 Step 7: Propose & Document Changes</h3>
+            When contributing for GSoC:<br>
+            - Document what modules or files your changes touch<br>
+            - Propose extensions to schemas (IDL/JSON)<br>
+            - Describe UI or UX changes (especially for Side Panel)<br>
+            - Ensure backward compatibility<br>
+            - Update Markdown docs if applicable<br><br>
+
+            <h3>✅ Bonus Tips</h3>
+            - Use <code>git grep</code> or Chromium Code Search<br>
+            - Use <code>gn desc</code> to view build dependencies<br>
+            - Check <code>OWNERS</code> files to know reviewers<br>
+            - Stay active on bug reports or mailing lists<br><br>
+
+            <h2>🌐 Conclusion</h2>
+            Understanding Chromium isn’t just about reading code — it’s about navigating architecture, following flows,
+            and contributing meaningful changes. This structured approach helped me build my GSoC proposal around the
+            DNR and Side Panel APIs with clarity and confidence.<br><br>
+
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
