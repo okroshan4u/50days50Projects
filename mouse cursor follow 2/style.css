@@ -1,0 +1,32 @@
+body {
+    background: rgb(11 11 35);
+    height: 100vh;
+    margin: 0px;
+}
+
+#trailer {
+    border-radius: 20px;
+    /* box-shadow: horizontal_shadow vertical_shadow blur_shadow blur_radius_shadow shadow_color ; */
+    box-shadow: rgb(110, 6, 251) 20px 20px 120px 55px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+
+body:hover > #trailer {
+    opacity: 1;
+}
+/* footer{
+    height: 100px;
+    background: red;
+    position:absolute;
+    bottom:0;
+    width:100vw;
+} */
