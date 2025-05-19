@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background-color: #34398C;
+   transition: background-image 0.5s ease-in-out;
+
+}
+/* Background wrapper covers the entire screen */
+#bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* behind everything */
+}
+
+/* Two layers to crossfade / slide between */
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-size: cover;
+  background-position: center;
+  transition: width 0.6s ease-in-out;
+}
+
+/* Basic card styles for hover testing */
+.card {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  display: inline-block;
+  background: #ccc;
+  transition: transform 0.3s ease;
+}
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+}
