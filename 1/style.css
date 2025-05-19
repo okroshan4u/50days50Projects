@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background-color: #34398C;
+   transition: background-image 1s ease-in-out;
+
+}
+
+.container{
+    position: relative;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container .card{
+    position:absolute;
+    width:240px;
+    height: 320px;
+    background: #333;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 0.5s;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container .card img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.5s;
+    filter: grayscale(1) contrast(2);
+}
+
+.container:hover .card{
+    transform: rotate(calc(var(--i) * 5deg)) translate(calc(var(--i)* 120px), -50px);
+}
+
+.container:hover .card img{
+    opacity: 0.5;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.25) ;
+}
+.container .card:hover{
+    translate: calc(var(--i) * 20px) -50px;
+    z-index: 100;
+}
+.container .card:hover img{
+    filter: grayscale(0) contrast(1);
+    opacity: 1;
+}
+
+.container .card::before{
+    content: attr(data-text);
+    position: absolute;
+    top:0;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    letter-spacing: 0.15rem;
+    color:#fff;
+    font-weight: 500;
+    justify-content: center;
+    transition:0.5s;
+    z-index:1000;
+    text-align: center;
+    transform: translateY(100px);
+    opacity: 0;
+}
+.container .card:hover::before{
+    top:-40px;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.container .card::after{
+    content:'';
+    position: absolute;
+    top:-100px;
+    width:50px;
+    height: 10px;
+    background: red;
+    transition: 0.5s;
+    transform: scaleY(0);
+    transform-origin:top ;
+    z-index:-1;
+}
+
+.container .card:hover::after{
+    transform: scaleY(50);
+}
