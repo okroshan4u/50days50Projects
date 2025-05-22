@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search bar </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header" class="flex justify_center align_center ">
+        Search by name only
+    </header>
+    <input type="text" id="mysearch" placeholder="Search names.." class="flex justify_center align_center"
+        onkeyup="searchFun ()">
+    <table id="mytable" class="flex justify_center back align_center ">
+        <tr>
+            <th>name</th>
+            <th>Degree</th>
+            <th>Profession</th>
+        </tr>
+        <tr>
+            <td>Roshan</td>
+            <td>MSC</td>
+            <td>Web developer</td>
+        </tr>
+        <tr>
+            <td>Rohan</td>
+            <td>MSC</td>
+            <td>Web developer</td>
+        </tr>
+        <tr>
+            <td>Vizaya</td>
+            <td>ME</td>
+            <td>Web developer</td>
+        </tr>
+        <tr>
+            <td>Rahul</td>
+            <td>MSC</td>
+            <td>Web developer</td>
+        </tr>
+        <tr>
+            <td>Munna</td>
+            <td>BSC</td>
+            <td>Full stack Web developer</td>
+        </tr>
+        <tr>
+            <td>Roshani</td>
+            <td>BBA</td>
+            <td>Full stack Web developer</td>
+        </tr>
+    </table>
+    <script>
+        const searchFun = () => {
+            let filter = document.getElementById('mysearch').value.toUpperCase();
+            let mytable = document.getElementById('mytable');
+            let tr = mytable.getElementsByTagName('tr');
+            for (var i = 0; i < tr.length; i++) {
+                let td = tr[i].getElementsByTagName('td')[0];
+                if (td) {
+                    let textvalue = td.textContent || td.innerHTML;
+                    if (textvalue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
