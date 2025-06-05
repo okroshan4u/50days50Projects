@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    border: 1px solid pink;
+    background: #D92C64;
+    color:white;
+    height: 45vw;
+    width: 30vw;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5vw;
+}
+
+.btn button {
+    padding: 1vw;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.867);
+    border-radius: 10px;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 2.5vw;
+    cursor: pointer;
+    margin-right: 1vw;
+}
+.btn button:hover {
+    background-color: #d7b1bd3f;
+    transition: all 0.5s ease-in-out;
+}
+
+.img {
+    background: url("./images.webp") center center/cover no-repeat;
+    height: 50%;
+    width: 100%;
+
+}
+.btn-remove{
+     display: none;
+}
+.display{
+    display: none;
+}
+.display-block{
+    display: block;
+}
