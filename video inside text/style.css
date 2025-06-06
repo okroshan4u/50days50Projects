@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+
+.container video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.container h1 {
+    font-size: 17vw;
+    color: black;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    -webkit-text-stroke: 2px black;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    mix-blend-mode: screen;
+    line-height: 100vh;
+}
