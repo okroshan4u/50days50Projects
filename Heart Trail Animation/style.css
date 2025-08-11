@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    height: 100vh;
+}
+
+span{
+    background: url("heart.png");
+    /* background: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png"); */
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background-size: cover;
+    left : 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: animate  6s linear ;
+
+}
+
+@keyframes animate {
+    0%{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        filter: hue-rotate(0);
+        
+    }
+    100%{
+        transform: translate(-50%, -5000%);
+        opacity: 0;
+        filter: hue-rotate(720deg);
+    }
+}
